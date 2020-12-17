@@ -1,3 +1,9 @@
+var psound = new Howl({
+  src: ['js/sounds/good_news_clean.mp3']
+});
+
+var played = false;
+
 document.addEventListener("DOMContentLoaded", function() {
   var chance = Math.floor(Math.random() * 11);
   var isGood = true;
@@ -12,19 +18,19 @@ document.addEventListener("DOMContentLoaded", function() {
     document.title = "Good news!"
     content.style.backgroundColor = "#1e824c"
     newstext.innerHTML = "Good news!"
-    var good_sound = new Howl({
-        src: ['js/sounds/good_news_clean.mp3']
-    });
-
-    good_sound.play();
+    psound.src = ['js/sounds/good_news_clean.mp3']
   } else {
     document.title = "Bad news!"
     content.style.backgroundColor = "#d91e18"
     newstext.innerHTML = "Bad news!"
-    var bad_sound = new Howl({
-        src: ['js/sounds/bad_news_clean.mp3']
-    });
+    psound.src = ['js/sounds/bad_news_clean.mp3']
+  }
+});
 
-    bad_sound.play();
+document.addEventListener('mousemove', e => {
+  if (!played) {
+    console.log("testing");
+    psound.play()
+    played = true;
   }
 });
