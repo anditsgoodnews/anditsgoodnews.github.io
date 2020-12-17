@@ -36,5 +36,6 @@ document.addEventListener('mousemove', e => {
       });
       psound.play()
     }
+    played = true
   }
 });
