@@ -12,14 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (isGood) {
     document.title = "Good news!"
-    content.style.backgroundColor = "#1e824c"
+    content.style.backgroundColor = "#00b16a"
     newstext.innerHTML = "Good news!"
-    psound.src = ['js/sounds/good_news_clean.mp3']
   } else {
     document.title = "Bad news!"
     content.style.backgroundColor = "#d91e18"
     newstext.innerHTML = "Bad news!"
-    psound.src = ['js/sounds/bad_news_clean.mp3']
   }
 });
 
