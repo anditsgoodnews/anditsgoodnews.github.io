@@ -1,12 +1,8 @@
-var psound = new Howl({
-  src: ['js/sounds/good_news_clean.mp3']
-});
-
 var played = false;
+var isGood = true;
 
 document.addEventListener("DOMContentLoaded", function() {
   var chance = Math.floor(Math.random() * 11);
-  var isGood = true;
   if (chance < 2) {
     isGood = false;
   }
@@ -29,8 +25,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('mousemove', e => {
   if (!played) {
-    console.log("testing");
-    psound.play()
-    played = true;
+    if (isGood) {
+      var psound = new Howl({
+        src: ['js/sounds/good_news_clean.mp3']
+      });
+      psound.play()
+    } else {
+      var psound = new Howl({
+        src: ['js/sounds/bad_news_clean.mp3']
+      });
+      psound.play()
+    }
   }
 });
